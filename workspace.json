@@ -57,7 +57,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/api"],
           "options": {
-            "jestConfig": "apps/api/jest.config.js",
+            "jestConfig": "apps/api/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -120,7 +120,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/html"],
           "options": {
-            "jestConfig": "apps/html/jest.config.js",
+            "jestConfig": "apps/html/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -143,7 +143,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/todos"],
           "options": {
-            "jestConfig": "libs/todos/jest.config.js",
+            "jestConfig": "libs/todos/jest.config.ts",
             "passWithNoTests": true
           }
         }
