@@ -47,7 +47,7 @@ And we will have a Docker container running on http://localhost:8080 that will h
    # Create Docker image: 'html'
    npm run deploy:html
 
-   # Build Docker container
+   # Launch Docker container
    npm run deploy
    ```
 

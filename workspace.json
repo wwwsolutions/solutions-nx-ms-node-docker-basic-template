@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/nest" },
-  "defaultProject": "api",
   "projects": {
     "api": {
       "root": "apps/api",
@@ -9,7 +7,7 @@
       "projectType": "application",
       "targets": {
         "deploy": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
               "nx build api",
@@ -19,7 +17,7 @@
           }
         },
         "build": {
-          "executor": "@nrwl/node:build",
+          "executor": "@nrwl/node:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
@@ -43,22 +41,28 @@
           }
         },
         "serve": {
-          "executor": "@nrwl/node:execute",
-          "options": { "buildTarget": "api:build" }
+          "executor": "@nrwl/node:node",
+          "options": {
+            "buildTarget": "api:build"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/api/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/api"],
           "options": {
-            "jestConfig": "apps/api/jest.config.js",
+            "jestConfig": "apps/api/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "html": {
       "root": "apps/html",
@@ -66,7 +70,7 @@
       "projectType": "application",
       "targets": {
         "deploy": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
               "nx build html",
@@ -76,7 +80,7 @@
           }
         },
         "build": {
-          "executor": "@nrwl/node:build",
+          "executor": "@nrwl/node:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/html",
@@ -100,22 +104,28 @@
           }
         },
         "serve": {
-          "executor": "@nrwl/node:execute",
-          "options": { "buildTarget": "html:build" }
+          "executor": "@nrwl/node:node",
+          "options": {
+            "buildTarget": "html:build"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/html/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["apps/html/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/html"],
           "options": {
-            "jestConfig": "apps/html/jest.config.js",
+            "jestConfig": "apps/html/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "todos": {
       "root": "libs/todos",
@@ -124,17 +134,21 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["libs/todos/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["libs/todos/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/todos"],
           "options": {
-            "jestConfig": "libs/todos/jest.config.js",
+            "jestConfig": "libs/todos/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     }
   }
 }
