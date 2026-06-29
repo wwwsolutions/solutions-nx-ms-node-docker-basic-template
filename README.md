@@ -65,5 +65,3 @@ And we will have a Docker container running on http://localhost:8080 that will h
 ---
 
 This project was generated using [Nx](https://nx.dev).
-
----
